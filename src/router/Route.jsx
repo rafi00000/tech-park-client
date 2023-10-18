@@ -3,6 +3,7 @@ import RootPage from "../Page/Root/RootPage";
 import HomePage from "../Page/Home/HomePage";
 import AddProduct from "../Page/AddProduct/AddProduct";
 import BrandPage from "../Page/BrandPage/BrandPage";
+import AddCategory from "../Page/AddCategory.jsx/AddCategory";
 
 const route = createBrowserRouter([
   {
@@ -14,15 +15,19 @@ const route = createBrowserRouter([
         element: <HomePage></HomePage>,
       },
       {
-        path: '/addProduct',
+        path: "/addProduct",
         element: <AddProduct></AddProduct>,
-        loader: () => fetch('/brand.json')
+        loader: () => fetch("http://localhost:5000/category"),
       },
       {
-        path: '/brand/:name',
-        loader: ({params})=> fetch(`http://localhost:5000/product/${params.name}`),
-        element: <BrandPage></BrandPage>
-      }
+        path: "/brand/:name",
+        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.name}`),
+        element: <BrandPage></BrandPage>,
+      },
+      {
+        path: "/category",
+        element: <AddCategory></AddCategory>,
+      },
     ],
   },
 ]);
