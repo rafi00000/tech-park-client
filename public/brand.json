@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Samsung",
+    "image": "samsung_logo.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Apple",
+    "image": "apple_logo.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Xiaomi",
+    "image": "xiaomi_logo.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Realme",
+    "image": "realme_logo.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Intel",
+    "image": "intel_logo.jpg"
+  },
+  {
+    "id": 6,
+    "name": "AMD",
+    "image": "amd_logo.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Google",
+    "image": "google_img.jpg"
+  }
+]

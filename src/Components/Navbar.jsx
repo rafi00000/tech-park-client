@@ -21,7 +21,8 @@ const Navbar = () => {
         {navLinks}
       </ul>
     </div>
-    <img src="/techshop.png" alt="" className="w-28 hidden md:flex"/>
+    {/* <img src="/techshop.png" alt="" className="w-28 hidden md:flex"/> */}
+    <p className="font-bold text-2xl font-mono">Tech Park</p>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
