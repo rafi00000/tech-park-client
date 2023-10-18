@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import BrandCard from "./BrandCard";
 
 const HomePage = () => {
 
@@ -29,7 +30,13 @@ const HomePage = () => {
 
             {/* brand name section */}
             <section>
-                
+                <h1 className="font-bold underline text-3xl text-center my-16">Brands</h1>
+                {/* brand container */}
+                <div className="grid grid-cols-3 gap-10">
+                    {
+                        brands.map(brand => <BrandCard key={brand.id} brand={brand}></BrandCard>)
+                    }
+                </div>
             </section>
         </div>
     );

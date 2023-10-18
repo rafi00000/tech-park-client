@@ -2,36 +2,36 @@
   {
     "id": 1,
     "name": "Samsung",
-    "image": "samsung_logo.jpg"
+    "image": "https://i.ibb.co/gZ3DKkW/samsung-logo.jpg"
   },
   {
     "id": 2,
     "name": "Apple",
-    "image": "apple_logo.jpg"
+    "image": "https://i.ibb.co/jVZT6HC/apple-logo.png"
   },
   {
     "id": 3,
     "name": "Xiaomi",
-    "image": "xiaomi_logo.jpg"
+    "image": "https://i.ibb.co/W5LsjMv/xiaomi-logo.jpg"
   },
   {
     "id": 4,
     "name": "Realme",
-    "image": "realme_logo.jpg"
+    "image": "https://i.ibb.co/Tt4T1WV/realme-logo.png"
   },
   {
     "id": 5,
     "name": "Intel",
-    "image": "intel_logo.jpg"
+    "image": "https://i.ibb.co/stmykfN/intel-logo.jpg"
   },
   {
     "id": 6,
     "name": "AMD",
-    "image": "amd_logo.jpg"
+    "image": "https://i.ibb.co/5vKfshr/amd-logo.jpg"
   },
   {
     "id": 7,
     "name": "Google",
-    "image": "google_img.jpg"
+    "image": "https://i.ibb.co/mBDQ0Hj/google-logo.jpg"
   }
 ]
