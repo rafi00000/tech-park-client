@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
 
 
 const AddProduct = () => {
@@ -8,20 +8,34 @@ const AddProduct = () => {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-
         const form = e.target;
 
         const name = form.name.value;
         const url = form.url.value ;
         const brand = form.brand.value;
         const type = form.type.value;
-        const price = form.price.value;
-        const rating = form.rating.value;
+        const price = parseFloat(form.price.value);
+        const rating = parseFloat(form.rating.value);
         const description = form.description.value;
-        
 
         const product = {name, url, brand, type, price, rating, description};
-        console.log(product);
+
+        fetch('http://localhost:5000/product', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(product)
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          if(data.acknowledged){
+            toast.success('Added the item successfully')
+          }
+        })
+
+        
     }
     
 
@@ -39,6 +53,7 @@ const AddProduct = () => {
               name="name"
               placeholder="Enter your name"
               className="input input-bordered"
+              required
             />
           </div>
 
@@ -82,6 +97,7 @@ const AddProduct = () => {
               name="price"
               placeholder="Amount"
               className="input input-bordered"
+              required
             />
           </div>
 
@@ -105,8 +121,9 @@ const AddProduct = () => {
               className="input input-bordered"
             />
           </div>
-          <input type="submit" value="Submit" className="btn btn-outline w-full my-5 mx-auto" />
+          <input type="submit" value="Add Product" className="btn btn-outline w-full my-5 mx-auto" />
       </form>
+      <Toaster></Toaster>
     </div>
   );
 };
