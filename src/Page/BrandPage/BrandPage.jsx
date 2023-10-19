@@ -3,6 +3,7 @@ import ProductCard from "./ProductCard";
 import { useEffect, useState } from "react";
 
 
+
 const BrandPage = () => {
   const [categoryLoadData, setCategoryLoadData] = useState([]);
   const brandLoadedProduct = useLoaderData();
@@ -46,7 +47,7 @@ const BrandPage = () => {
           3
         </a>
       </div>
-
+      
       {/* product below */}
       <h1 className="text-center font-bold text-3xl underline my-10 bg">
         Products: {pageCategory?.name}

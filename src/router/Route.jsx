@@ -6,6 +6,7 @@ import BrandPage from "../Page/BrandPage/BrandPage";
 import AddCategory from "../Page/AddCategory.jsx/AddCategory";
 import UpdateForm from "../Page/UpdateForm/UpdateForm";
 import DetailsPage from "../Page/DetailsPage/DetailsPage";
+import CartPage from "../Page/Mycart/CartPage";
 
 const route = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const route = createBrowserRouter([
         path: '/productDetails/:id',
         loader: ({params}) => fetch(`http://localhost:5000/productDetails/${params.id}`),
         element: <DetailsPage></DetailsPage>,
+      },
+      {
+        path: '/myCart',
+        element: <CartPage></CartPage>
       }
     ],
   },
