@@ -36,7 +36,7 @@ const HomePage = () => {
           Brands
         </h1>
         {/* brand container */}
-        <div className="grid grid-cols-3 gap-10">
+        <div className="grid md:grid-cols-3 gap-10">
           {brands.map((brand) => (
             <BrandCard key={brand.id} brand={brand}></BrandCard>
           ))}

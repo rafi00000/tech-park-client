@@ -65,7 +65,8 @@ const BrandPage = () => {
             <p>Item will be added soon</p>
           </div>
         ) : (
-          <div className="grid grid-cols-3 gap-5">
+          // product container------------------
+          <div className="grid md:grid-cols-3 gap-5 ">
             {brandLoadedProduct.map((brand) => (
               <ProductCard key={brand._id} product={brand}></ProductCard>
             ))}

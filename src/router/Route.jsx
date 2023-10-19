@@ -1,9 +1,11 @@
-import { createBrowserRouter, useLoaderData } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import RootPage from "../Page/Root/RootPage";
 import HomePage from "../Page/Home/HomePage";
 import AddProduct from "../Page/AddProduct/AddProduct";
 import BrandPage from "../Page/BrandPage/BrandPage";
 import AddCategory from "../Page/AddCategory.jsx/AddCategory";
+import UpdateForm from "../Page/UpdateForm/UpdateForm";
+import DetailsPage from "../Page/DetailsPage/DetailsPage";
 
 const route = createBrowserRouter([
   {
@@ -28,6 +30,15 @@ const route = createBrowserRouter([
         path: "/category",
         element: <AddCategory></AddCategory>,
       },
+      {
+        path: '/update/:id',
+        element: <UpdateForm></UpdateForm>
+      },
+      {
+        path: '/productDetails/:id',
+        loader: ({params}) => fetch(`http://localhost:5000/productDetails/${params.id}`),
+        element: <DetailsPage></DetailsPage>,
+      }
     ],
   },
 ]);
