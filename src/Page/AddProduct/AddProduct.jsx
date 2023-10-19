@@ -31,7 +31,8 @@ const AddProduct = () => {
         .then(data => {
           console.log(data);
           if(data.acknowledged){
-            toast.success('Added the item successfully')
+            toast.success('Added the item successfully');
+            form.reset();
           }
         })
         
@@ -84,6 +85,7 @@ const AddProduct = () => {
                 <option value="laptop">Laptop</option>
                 <option value="headphone">Headphone</option>
                 <option value="processor">Processor</option>
+                <option value="watch">Watch</option>
             </select>
           </div>
         </div>
