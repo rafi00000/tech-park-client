@@ -4,6 +4,7 @@ import { useLoaderData } from "react-router-dom";
 
 const CartPage = () => {
   const cartLoadedProduct = useLoaderData();
+  const [cartData, setCartData] = useState(cartLoadedProduct);
 
   const handleDelete = (_id) =>{
     fetch(`http://localhost:5000/cart/${_id}`, {
@@ -14,13 +15,15 @@ const CartPage = () => {
         console.log(data);
         if(data.deletedCount > 0){
             toast.success("Deleted Successfully")
+            const remaining = cartData.filter(item => item._id !== _id);
+            setCartData(remaining)
         }
     })
   }
 
   return (
     <div className="grid gap-5 grid-cols-1 md:grid-cols-2 my-10">
-      {cartLoadedProduct.map((cartItem) => (
+      {cartData.map((cartItem) => (
         <div key={cartItem._id}>
           <div className="flex p-5 justify-around border rounded-xl items-center">
             <div className="w-24">

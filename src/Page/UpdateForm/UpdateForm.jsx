@@ -6,6 +6,7 @@ const UpdateForm = () => {
     const productLoadedData = useLoaderData();
     console.log(productLoadedData);
     const {brand, name, description, price, type, rating, url, _id} = productLoadedData;
+    
     const [data, setData] = useState();
 
     useEffect(() =>{
@@ -15,6 +16,7 @@ const UpdateForm = () => {
             setData(data);
         })
     }, [])
+
 
     const handleUpdate = (e) =>{
         e.preventDefault();

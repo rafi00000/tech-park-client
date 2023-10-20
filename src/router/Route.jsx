@@ -7,6 +7,8 @@ import AddCategory from "../Page/AddCategory.jsx/AddCategory";
 import UpdateForm from "../Page/UpdateForm/UpdateForm";
 import DetailsPage from "../Page/DetailsPage/DetailsPage";
 import CartPage from "../Page/Mycart/CartPage";
+import LoginPage from "../Page/Auth/LoginPage";
+import RegisterPage from "../Page/Auth/RegisterPage";
 
 const route = createBrowserRouter([
   {
@@ -33,7 +35,7 @@ const route = createBrowserRouter([
       },
       {
         path: '/update/:id',
-        loader: ({params}) => fetch(`http://localhost:5000/product/update/${params.id}`),
+        loader: ({params}) => fetch(`http://localhost:5000/productDetails/${params.id}`),
         element: <UpdateForm></UpdateForm>
       },
       {
@@ -45,6 +47,14 @@ const route = createBrowserRouter([
         path: '/myCart',
         loader: () => fetch('http://localhost:5000/cart'),
         element: <CartPage></CartPage>
+      },
+      {
+        path: '/login',
+        element: <LoginPage></LoginPage>
+      },
+      {
+        path: '/register',
+        element: <RegisterPage></RegisterPage>
       }
     ],
   },

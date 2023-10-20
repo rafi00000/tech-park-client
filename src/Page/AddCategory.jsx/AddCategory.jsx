@@ -20,8 +20,9 @@ const AddCategory = () => {
   };
 
   return (
-    <div>
-      <form className=" border rounded-xl my-10 p-10" onSubmit={handleCategoryForm}>
+    <div className="my-10 space-y-10">
+      <h1 className="text-3xl text-center font-bold underline">Add A new Brand</h1>
+      <form className=" border rounded-xl p-10 w-3/4 mx-auto" onSubmit={handleCategoryForm}>
         <div className="form-control">
           <label>Name</label>
           <input
