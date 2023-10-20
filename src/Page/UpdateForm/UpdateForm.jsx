@@ -30,7 +30,6 @@ const UpdateForm = () => {
         const description = form.description.value;
 
         const product = {name, url, brand, type, price, rating, description};
-        console.log(product);
 
         fetch(`http://localhost:5000/productDetails/${_id}`, {
             method: 'PUT',
