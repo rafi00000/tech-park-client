@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   const { brand, description, name, price, rating, type, url, _id } = product;
@@ -41,7 +41,7 @@ const ProductCard = ({ product }) => {
       </p>
       {/* card finished here */}
       <div className="flex justify-center gap-5">
-        <button className="btn btn-sm btn-outline">Update</button>
+        <Link to={`/update/${_id}`}><button className="btn btn-sm btn-outline">Update</button></Link>
         <button className="btn btn-sm btn-outline" onClick={()=>navigate(`/productDetails/${_id}`)}>Details</button>
       </div>
     </div>
