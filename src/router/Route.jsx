@@ -9,6 +9,7 @@ import DetailsPage from "../Page/DetailsPage/DetailsPage";
 import CartPage from "../Page/Mycart/CartPage";
 import LoginPage from "../Page/Auth/LoginPage";
 import RegisterPage from "../Page/Auth/RegisterPage";
+import PrivateRoute from "../Components/AuthProvider/PrivateRoute";
 
 const route = createBrowserRouter([
   {
@@ -21,32 +22,32 @@ const route = createBrowserRouter([
       },
       {
         path: "/addProduct",
-        element: <AddProduct></AddProduct>,
+        element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>,
         loader: () => fetch("http://localhost:5000/category"),
       },
       {
         path: "/brand/:name",
         loader: ({ params }) => fetch(`http://localhost:5000/product/${params.name}`),
-        element: <BrandPage></BrandPage>,
+        element: <PrivateRoute><BrandPage></BrandPage></PrivateRoute>,
       },
       {
         path: "/category",
-        element: <AddCategory></AddCategory>,
+        element: <PrivateRoute><AddCategory></AddCategory></PrivateRoute>,
       },
       {
         path: '/update/:id',
         loader: ({params}) => fetch(`http://localhost:5000/productDetails/${params.id}`),
-        element: <UpdateForm></UpdateForm>
+        element: <PrivateRoute><UpdateForm></UpdateForm></PrivateRoute>
       },
       {
         path: '/productDetails/:id',
         loader: ({params}) => fetch(`http://localhost:5000/productDetails/${params.id}`),
-        element: <DetailsPage></DetailsPage>,
+        element: <PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>,
       },
       {
         path: '/myCart',
         loader: () => fetch('http://localhost:5000/cart'),
-        element: <CartPage></CartPage>
+        element: <PrivateRoute><CartPage></CartPage></PrivateRoute>
       },
       {
         path: '/login',
