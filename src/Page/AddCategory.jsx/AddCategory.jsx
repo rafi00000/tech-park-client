@@ -12,25 +12,33 @@ const AddCategory = () => {
 
     const category = { name, url, slider1, slider2, slider3 };
     console.log(category);
-    fetch('http://localhost:5000/category', {
-        method: 'POST',
+    fetch(
+      "https://b8a10-brandshop-server-side-rafi00000-33c55kgg1-rafi00000.vercel.app/category",
+      {
+        method: "POST",
         headers: {
-            'content-type' : 'application/json'
+          "content-type": "application/json",
         },
-        body: JSON.stringify(category)
-    })
-    .then(res => res.json())
-    .then(data => {
-      if(data.acknowledged){
-        toast.success('Successfully Added')
+        body: JSON.stringify(category),
       }
-    })
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          toast.success("Successfully Added");
+        }
+      });
   };
 
   return (
     <div className="my-10 space-y-10">
-      <h1 className="text-3xl text-center font-bold underline">Add A new Brand</h1>
-      <form className=" border rounded-xl p-10 w-3/4 mx-auto" onSubmit={handleCategoryForm}>
+      <h1 className="text-3xl text-center font-bold underline">
+        Add A new Brand
+      </h1>
+      <form
+        className=" border rounded-xl p-10 w-3/4 mx-auto"
+        onSubmit={handleCategoryForm}
+      >
         <div className="form-control">
           <label>Name</label>
           <input
@@ -80,7 +88,11 @@ const AddCategory = () => {
             placeholder="Slider 3 URL"
           />
         </div>
-        <input type="submit" value="Create" className="btn btn-outline my-4 w-full" />
+        <input
+          type="submit"
+          value="Create"
+          className="btn btn-outline my-4 w-full"
+        />
       </form>
       <Toaster></Toaster>
     </div>

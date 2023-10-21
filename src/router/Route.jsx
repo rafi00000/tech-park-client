@@ -22,41 +22,80 @@ const route = createBrowserRouter([
       },
       {
         path: "/addProduct",
-        element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>,
-        loader: () => fetch("http://localhost:5000/category"),
+        element: (
+          <PrivateRoute>
+            <AddProduct></AddProduct>
+          </PrivateRoute>
+        ),
+        loader: () =>
+          fetch(
+            "https://b8a10-brandshop-server-side-rafi00000-33c55kgg1-rafi00000.vercel.app/category"
+          ),
       },
       {
         path: "/brand/:name",
-        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.name}`),
-        element: <PrivateRoute><BrandPage></BrandPage></PrivateRoute>,
+        loader: ({ params }) =>
+          fetch(
+            `https://b8a10-brandshop-server-side-rafi00000-33c55kgg1-rafi00000.vercel.app/product/${params.name}`
+          ),
+        element: (
+          <PrivateRoute>
+            <BrandPage></BrandPage>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/category",
-        element: <PrivateRoute><AddCategory></AddCategory></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <AddCategory></AddCategory>
+          </PrivateRoute>
+        ),
       },
       {
-        path: '/update/:id',
-        loader: ({params}) => fetch(`http://localhost:5000/productDetails/${params.id}`),
-        element: <PrivateRoute><UpdateForm></UpdateForm></PrivateRoute>
+        path: "/update/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://b8a10-brandshop-server-side-rafi00000-33c55kgg1-rafi00000.vercel.app/productDetails/${params.id}`
+          ),
+        element: (
+          <PrivateRoute>
+            <UpdateForm></UpdateForm>
+          </PrivateRoute>
+        ),
       },
       {
-        path: '/productDetails/:id',
-        loader: ({params}) => fetch(`http://localhost:5000/productDetails/${params.id}`),
-        element: <PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>,
+        path: "/productDetails/:id",
+        loader: ({ params }) =>
+          fetch(
+            `https://b8a10-brandshop-server-side-rafi00000-33c55kgg1-rafi00000.vercel.app/productDetails/${params.id}`
+          ),
+        element: (
+          <PrivateRoute>
+            <DetailsPage></DetailsPage>
+          </PrivateRoute>
+        ),
       },
       {
-        path: '/myCart',
-        loader: () => fetch('http://localhost:5000/cart'),
-        element: <PrivateRoute><CartPage></CartPage></PrivateRoute>
+        path: "/myCart",
+        loader: () =>
+          fetch(
+            "https://b8a10-brandshop-server-side-rafi00000-33c55kgg1-rafi00000.vercel.app/cart"
+          ),
+        element: (
+          <PrivateRoute>
+            <CartPage></CartPage>
+          </PrivateRoute>
+        ),
       },
       {
-        path: '/login',
-        element: <LoginPage></LoginPage>
+        path: "/login",
+        element: <LoginPage></LoginPage>,
       },
       {
-        path: '/register',
-        element: <RegisterPage></RegisterPage>
-      }
+        path: "/register",
+        element: <RegisterPage></RegisterPage>,
+      },
     ],
   },
 ]);
