@@ -1,6 +1,6 @@
 # Tech Part
 
-Live link:
+Live link: https://squalid-river.surge.sh/
 
 ## Description:
 
