@@ -22,19 +22,28 @@ const CartPage = () => {
   }
 
   return (
-    <div className="grid gap-5 grid-cols-1 md:grid-cols-2 my-10">
-      {cartData.map((cartItem) => (
-        <div key={cartItem._id}>
-          <div className="flex p-5 justify-around border rounded-xl items-center">
-            <div className="w-24">
-              <img src={cartItem.url} alt="" className="w-full mx-auto" />
-            </div>
-            <p>{cartItem.name}</p>
-            <p>{cartItem.price} $</p>
-            <button className="btn btn-square bg-red-600 text-white hover:bg-red-700" onClick={()=>handleDelete(cartItem._id)}>x</button>
-          </div>
+    <div className="grid gap-5 grid-cols-1 md:grid-cols-2 my-10 min-h-screen">
+      {
+        cartData.length < 1 ? 
+        <div>
+          <img src="https://i.ibb.co/z8HbsWG/empty-cart.png" alt="" className=""/>
+          <p className="text-xl font-bold">There is nothing in the cart</p>
         </div>
-      ))}
+        : 
+        cartData.map((cartItem) => (
+          <div key={cartItem._id}>
+            <div className="flex p-5 justify-around border rounded-xl items-center">
+              <div className="w-24">
+                <img src={cartItem.url} alt="" className="w-full mx-auto" />
+              </div>
+              <p>{cartItem.name}</p>
+              <p>{cartItem.price} $</p>
+              <button className="btn btn-square bg-red-600 text-white hover:bg-red-700" onClick={()=>handleDelete(cartItem._id)}>x</button>
+            </div>
+          </div>
+        ))
+      }
+      
       <Toaster></Toaster>
     </div>
   );

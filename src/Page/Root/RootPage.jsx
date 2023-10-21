@@ -5,7 +5,7 @@ import Footer from './../../Components/Footer';
 const RootPage = () => {
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto p-5" id="toggler">
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>

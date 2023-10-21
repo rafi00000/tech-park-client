@@ -17,8 +17,9 @@ const AddProduct = () => {
         const price = parseFloat(form.price.value);
         const rating = parseFloat(form.rating.value);
         const description = form.description.value;
+        const featured = form.featured.value;
 
-        const product = {name, url, brand, type, price, rating, description};
+        const product = {name, url, brand, type, price, rating, description, featured};
 
         fetch('http://localhost:5000/product', {
           method: 'POST',
@@ -111,6 +112,14 @@ const AddProduct = () => {
               className="input input-bordered"
             />
           </div>
+          <div className="form-control md:w-1/2">
+            <label>Featured?</label>
+          <select name="featured" id="" className="input input-bordered">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+          </select>
+          </div>
+          
         </div>
 
         <div className="form-control">

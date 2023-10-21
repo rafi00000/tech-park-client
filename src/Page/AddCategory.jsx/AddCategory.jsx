@@ -1,3 +1,5 @@
+import toast, { Toaster } from "react-hot-toast";
+
 const AddCategory = () => {
   const handleCategoryForm = (e) => {
     e.preventDefault();
@@ -16,6 +18,12 @@ const AddCategory = () => {
             'content-type' : 'application/json'
         },
         body: JSON.stringify(category)
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.acknowledged){
+        toast.success('Successfully Added')
+      }
     })
   };
 
@@ -74,6 +82,7 @@ const AddCategory = () => {
         </div>
         <input type="submit" value="Create" className="btn btn-outline my-4 w-full" />
       </form>
+      <Toaster></Toaster>
     </div>
   );
 };

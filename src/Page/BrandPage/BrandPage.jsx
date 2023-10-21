@@ -27,13 +27,13 @@ const BrandPage = () => {
     <div className="min-h-screen">
       <div className="carousel w-full">
         <div id="item1" className="carousel-item w-full">
-          <img src={pageCategory?.slider1} className="w-full" />
+          <img src={pageCategory?.slider1} className="w-full h-96" />
         </div>
         <div id="item2" className="carousel-item w-full">
-          <img src={pageCategory?.slider2} />
+          <img src={pageCategory?.slider2} className="w-full h-96" />
         </div>
         <div id="item3" className="carousel-item w-full">
-          <img src={pageCategory?.slider3} className="w-full" />
+          <img src={pageCategory?.slider3} className="w-full h-96" />
         </div>
       </div>
       <div className="flex justify-center w-full py-2 gap-2">

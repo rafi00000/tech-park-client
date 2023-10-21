@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "./AuthProvider/AuthProvider";
 
@@ -7,9 +7,27 @@ const Navbar = () => {
 
   const {user, logOut} = useContext(AuthContext);
 
+  const [isToggled, setIsToggled] = useState(false);
+
   const handleSignOut = () =>{
     logOut();
   }
+
+  const handleThemeChange =() =>{
+    setIsToggled(!isToggled);
+    
+    const navbar=  document.getElementById('toggler');
+    if(!isToggled){
+      navbar.setAttribute("data-theme", "dark");
+      navbar.classList = "container mx-auto text-white p-5 duration-700"
+    }
+    else{
+      navbar.setAttribute("data-theme", "light")
+      navbar.classList = "container mx-auto text-black p-5 duration-700"
+    }
+  }
+
+  
 
     const navLinks = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
@@ -30,18 +48,22 @@ const Navbar = () => {
         {navLinks}
       </ul>
     </div>
-    {/* <img src="/techshop.png" alt="" className="w-28 hidden md:flex"/> */}
-    <p className="font-bold text-2xl font-mono">Tech Park</p>
+    
+    <div className="flex items-center justify-center gap-5">
+      <img src="https://i.ibb.co/XC2KxyC/web-logo.png" className="w-20 hidden md:flex" />
+    <p className="font-bold text-2xl font-mono hidden md:flex">Tech Park</p>
+    </div>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
       {navLinks}
     </ul>
   </div>
-  <div className="navbar-end">
+  <div className="navbar-center md:navbar-end">
+  <input type="checkbox" className="toggle" name="theme" onClick={handleThemeChange} />
     {
-      user? <div className="flex gap-2 p-3 rounded-xl items-center border">
-        <img src={user.photoURL} alt="" className="w-12"/>
+      user? <div className="flex gap-1 p-1 rounded-xl items-center border">
+        <img src={user.photoURL} alt="" className="w-9 rounded-full"/>
         <p>{user.displayName}</p>
       <button className="btn btn-sm btn-outline" onClick={handleSignOut}>Sign out</button>
       </div>:
