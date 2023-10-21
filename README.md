@@ -1,8 +1,15 @@
-# React + Vite
+# Tech Part
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Live link:
 
-Currently, two official plugins are available:
+## Description:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is a E-commerce type of website which include brands and product on that specific brands its fully dynamic.
+
+### Features:
+
+1. You can Add custom Brand that will be shown in the home page.
+2. On click in the brands it will show the product relevant to the brand.
+3. You can add product from the Add product form.
+4. firebase authentication with validation is available.
+5. You can add custom advertising banner.

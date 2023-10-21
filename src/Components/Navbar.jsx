@@ -15,7 +15,7 @@ const Navbar = () => {
 
   const handleThemeChange =() =>{
     setIsToggled(!isToggled);
-    
+
     const navbar=  document.getElementById('toggler');
     if(!isToggled){
       navbar.setAttribute("data-theme", "dark");
@@ -60,15 +60,15 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-center md:navbar-end">
-  <input type="checkbox" className="toggle" name="theme" onClick={handleThemeChange} />
     {
-      user? <div className="flex gap-1 p-1 rounded-xl items-center border">
+      user? <div className="flex flex-col md:flex-row gap-1 p-1 rounded-xl items-center border">
         <img src={user.photoURL} alt="" className="w-9 rounded-full"/>
         <p>{user.displayName}</p>
       <button className="btn btn-sm btn-outline" onClick={handleSignOut}>Sign out</button>
       </div>:
       <button className="btn btn-outline btn-sm" >Login</button>
     }
+  <input type="checkbox" className="toggle ml-3" name="theme" onClick={handleThemeChange} />
   </div>
 </div>
   );

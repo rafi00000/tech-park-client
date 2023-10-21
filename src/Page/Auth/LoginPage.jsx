@@ -17,7 +17,7 @@ const LoginPage = () => {
 
         signInUser(email, password)
         .then(user => {
-          toast.success('Login successfull')
+          toast.success('Login successful')
         })
         .catch(error => {
           console.log(error);
@@ -27,8 +27,12 @@ const LoginPage = () => {
 
     const handleGoogleLogin = () =>{
       googleSignIn()
-      .then(user => console.log(user))
-      .catch(error => console.log(error))
+      .then(user => {
+        toast.success('Login successful')
+      })
+      .catch(error => {
+        toast.error('Something went wrong')
+      })
     }
 
 

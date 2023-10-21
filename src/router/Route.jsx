@@ -10,11 +10,13 @@ import CartPage from "../Page/Mycart/CartPage";
 import LoginPage from "../Page/Auth/LoginPage";
 import RegisterPage from "../Page/Auth/RegisterPage";
 import PrivateRoute from "../Components/AuthProvider/PrivateRoute";
+import ErrorPage from "../Page/ErrorPage/ErrorPage";
 
 const route = createBrowserRouter([
   {
     path: "/",
     element: <RootPage></RootPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
