@@ -1,44 +1,42 @@
-import { createBrowserRouter } from "react-router-dom";
-import RootPage from "../Page/Root/RootPage";
-import HomePage from "../Page/Home/HomePage";
-import AddProduct from "../Page/AddProduct/AddProduct";
-import BrandPage from "../Page/BrandPage/BrandPage";
-import AddCategory from "../Page/AddCategory.jsx/AddCategory";
-import UpdateForm from "../Page/UpdateForm/UpdateForm";
-import DetailsPage from "../Page/DetailsPage/DetailsPage";
-import CartPage from "../Page/Mycart/CartPage";
-import LoginPage from "../Page/Auth/LoginPage";
-import RegisterPage from "../Page/Auth/RegisterPage";
-import PrivateRoute from "../Components/AuthProvider/PrivateRoute";
-import ErrorPage from "../Page/ErrorPage/ErrorPage";
+import { createBrowserRouter } from 'react-router-dom';
+import RootPage from '../Page/Root/RootPage';
+import HomePage from '../Page/Home/HomePage';
+import AddProduct from '../Page/AddProduct/AddProduct';
+import BrandPage from '../Page/BrandPage/BrandPage';
+import AddCategory from '../Page/AddCategory.jsx/AddCategory';
+import UpdateForm from '../Page/UpdateForm/UpdateForm';
+import DetailsPage from '../Page/DetailsPage/DetailsPage';
+import CartPage from '../Page/Mycart/CartPage';
+import LoginPage from '../Page/Auth/LoginPage';
+import RegisterPage from '../Page/Auth/RegisterPage';
+import PrivateRoute from '../Components/AuthProvider/PrivateRoute';
+import ErrorPage from '../Page/ErrorPage/ErrorPage';
 
 const route = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <RootPage></RootPage>,
     errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
-        path: "/",
+        path: '/',
         element: <HomePage></HomePage>,
       },
       {
-        path: "/addProduct",
+        path: '/addProduct',
         element: (
           <PrivateRoute>
             <AddProduct></AddProduct>
           </PrivateRoute>
         ),
         loader: () =>
-          fetch(
-            "https://b8a10-brandshop-server-side-rafi00000-33c55kgg1-rafi00000.vercel.app/category"
-          ),
+          fetch('https://tech-park-server-ivory.vercel.app/category'),
       },
       {
-        path: "/brand/:name",
+        path: '/brand/:name',
         loader: ({ params }) =>
           fetch(
-            `https://b8a10-brandshop-server-side-rafi00000-33c55kgg1-rafi00000.vercel.app/product/${params.name}`
+            `https://tech-park-server-ivory.vercel.app/product/${params.name}`
           ),
         element: (
           <PrivateRoute>
@@ -47,7 +45,7 @@ const route = createBrowserRouter([
         ),
       },
       {
-        path: "/category",
+        path: '/category',
         element: (
           <PrivateRoute>
             <AddCategory></AddCategory>
@@ -55,10 +53,10 @@ const route = createBrowserRouter([
         ),
       },
       {
-        path: "/update/:id",
+        path: '/update/:id',
         loader: ({ params }) =>
           fetch(
-            `https://b8a10-brandshop-server-side-rafi00000-33c55kgg1-rafi00000.vercel.app/productDetails/${params.id}`
+            `https://tech-park-server-ivory.vercel.app/productDetails/${params.id}`
           ),
         element: (
           <PrivateRoute>
@@ -67,10 +65,10 @@ const route = createBrowserRouter([
         ),
       },
       {
-        path: "/productDetails/:id",
+        path: '/productDetails/:id',
         loader: ({ params }) =>
           fetch(
-            `https://b8a10-brandshop-server-side-rafi00000-33c55kgg1-rafi00000.vercel.app/productDetails/${params.id}`
+            `https://tech-park-server-ivory.vercel.app/productDetails/${params.id}`
           ),
         element: (
           <PrivateRoute>
@@ -79,11 +77,8 @@ const route = createBrowserRouter([
         ),
       },
       {
-        path: "/myCart",
-        loader: () =>
-          fetch(
-            "https://b8a10-brandshop-server-side-rafi00000-33c55kgg1-rafi00000.vercel.app/cart"
-          ),
+        path: '/myCart',
+        loader: () => fetch('https://tech-park-server-ivory.vercel.app/cart'),
         element: (
           <PrivateRoute>
             <CartPage></CartPage>
@@ -91,11 +86,11 @@ const route = createBrowserRouter([
         ),
       },
       {
-        path: "/login",
+        path: '/login',
         element: <LoginPage></LoginPage>,
       },
       {
-        path: "/register",
+        path: '/register',
         element: <RegisterPage></RegisterPage>,
       },
     ],
