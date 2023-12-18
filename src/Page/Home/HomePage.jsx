@@ -2,6 +2,11 @@ import { useEffect, useState } from 'react';
 import BrandCard from './BrandCard';
 import { Link } from 'react-router-dom';
 import { Tooltip } from 'react-tooltip';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/free-mode';
 
 const HomePage = () => {
   const [brands, setBrands] = useState([]);
@@ -112,15 +117,27 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* featured product section */}
+
       <section className='my-10 space-y-5'>
         <h2 className='text-3xl text-center font-semibold underline'>
           Featured Product
         </h2>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 '>
+        {/* <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 '> */}
+        <Swiper
+        slidesPerView={3}
+        spaceBetween={30}
+        freeMode={true}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[FreeMode, Pagination]}
+      >
           {featured.map((product) => (
-            <BrandCard key={product._id} brand={product}></BrandCard>
+            <Link key={product._id} to={`/productDetails/${product._id}`}><SwiperSlide><BrandCard brand={product}></BrandCard></SwiperSlide></Link>
           ))}
-        </div>
+          </Swiper>
+        {/* </div> */}
       </section>
       <Tooltip id="my-tooltip" />
     </div>
