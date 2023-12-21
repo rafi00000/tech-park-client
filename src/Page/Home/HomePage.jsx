@@ -7,6 +7,7 @@ import { FreeMode, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/free-mode';
+import FeaturedCard from './FeaturedCard';
 
 const HomePage = () => {
   const [brands, setBrands] = useState([]);
@@ -134,7 +135,7 @@ const HomePage = () => {
         modules={[FreeMode, Pagination]}
       >
           {featured.map((product) => (
-            <Link key={product._id} to={`/productDetails/${product._id}`}><SwiperSlide><BrandCard brand={product}></BrandCard></SwiperSlide></Link>
+            <Link key={product._id} to={`/productDetails/${product._id}`}><SwiperSlide><FeaturedCard product={product}></FeaturedCard></SwiperSlide></Link>
           ))}
           </Swiper>
         {/* </div> */}

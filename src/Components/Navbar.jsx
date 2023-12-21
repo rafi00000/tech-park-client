@@ -42,7 +42,7 @@ const Navbar = () => {
         <NavLink to={"/category"}>Add Category</NavLink>
       </li>
       <li>
-        <NavLink to={"/feedback"}>Add Category</NavLink>
+        <NavLink to={"/feedback"}>Feedbacks</NavLink>
       </li>
       {user && (
         <li>

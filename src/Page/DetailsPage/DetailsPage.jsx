@@ -1,13 +1,16 @@
+import { useContext } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
 
 const DetailsPage = () => {
   const product = useLoaderData();
+  const {user} = useContext(AuthContext);
+  const email = user?.email;
   const { brand, name, price, rating, url, description } = product;
 
   const handleAddToCart = () => {
-    const cartProduct = { brand, name, price, rating, url, description };
-    console.log(cartProduct);
+    const cartProduct = { brand, name, price, rating, url, description, email };
     fetch('https://tech-park-server-ivory.vercel.app/cart', {
       method: 'POST',
       headers: {

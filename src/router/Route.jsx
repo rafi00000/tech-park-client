@@ -11,6 +11,8 @@ import LoginPage from '../Page/Auth/LoginPage';
 import RegisterPage from '../Page/Auth/RegisterPage';
 import PrivateRoute from '../Components/AuthProvider/PrivateRoute';
 import ErrorPage from '../Page/ErrorPage/ErrorPage';
+import FeedbackForm from '../Feedback/FeedbackForm';
+import Feedbacks from '../Page/Feedbacks/Feedbacks';
 
 const route = createBrowserRouter([
   {
@@ -93,6 +95,14 @@ const route = createBrowserRouter([
         path: '/register',
         element: <RegisterPage></RegisterPage>,
       },
+      {
+        path: '/give-feedback',
+        element: <PrivateRoute><FeedbackForm></FeedbackForm></PrivateRoute>
+      },
+      {
+        path: '/feedback',
+        element: <Feedbacks></Feedbacks>
+      }
     ],
   },
 ]);
