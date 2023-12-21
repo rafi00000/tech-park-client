@@ -80,7 +80,6 @@ const route = createBrowserRouter([
       },
       {
         path: '/myCart',
-        loader: () => fetch('https://tech-park-server-ivory.vercel.app/cart'),
         element: (
           <PrivateRoute>
             <CartPage></CartPage>

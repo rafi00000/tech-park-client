@@ -1,16 +1,14 @@
 import axios from 'axios';
 import { useContext, useEffect, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Components/AuthProvider/AuthProvider';
 
 const CartPage = () => {
   const {user} = useContext(AuthContext);
-  const cartLoadedProduct = useLoaderData();
-  const [cartData, setCartData] = useState(cartLoadedProduct);
+  const [cartData, setCartData] = useState([]);
 
   useEffect(() =>{
-    axios.get(`http://localhost:5000/cart?email=${user.email}`)
+    axios.get(`https://tech-park-server-ivory.vercel.app/cart?email=${user.email}`)
     .then(res =>{
       console.log(res.data);
       setCartData(res.data);
